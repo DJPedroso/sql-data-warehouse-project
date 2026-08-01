@@ -6,12 +6,12 @@ The Gold Layer is the business-level data representation, structured to support 
 ---
 
 ### 1. **gold.dim_customers**
-- **Purpose:** Stores customer details enriched with demographic & geographic data.
+- **Purpose:** Stores customer details enriched with demographic and geographic data.
 - **Columns:**
 
 | Column Name | Data Type | Description |
 | :------ | :--- | :---------- |
-| **customer_key** | INT | Surrogate key uniquely identifying each customer record in the dimension table |
+| **customer_key** | INT | Surrogate key uniquely identifying each customer record in the dimension table. |
 | **customer_id** | INT | Unique numerical identifier assigned to each customer. |
 | **customer_number** | VARCHAR | Alphanumeric identifier representing the customer, used for tracking & referencing. |
 | **first_name** | VARCHAR | Customer's first name, as recorded in the system. |
@@ -37,32 +37,25 @@ The Gold Layer is the business-level data representation, structured to support 
 | **category_id** | VARCHAR | Unique identifier for the product's category, linking to its high-level classification. |
 | **category** | VARCHAR | Broader classification of the product (e.g. Bikes, Components) to group related items. |
 | **subcategory** | VARCHAR | More detailed classification of the product within the category, such as product type. |
-| **maintenance** | VARCHAR |  |
-| **cost** | INT |  |
-| **product_line** | VARCHAR | Specific product line or series to which the product belongs (e.g. Road, Mountain) |
-| **start_date** | DATE | Unique identifier assigned to the product for internal tracking and referencing |
+| **maintenance** | VARCHAR | Indicates whether the product requires maintenance (e.g. 'Yes', 'No'). |
+| **product_cost** | INT | Cost or base price of the product, measured in monetary units. |
+| **product_line** | VARCHAR | Specific product line or series to which the product belongs (e.g. Road, Mountain). |
+| **start_date** | DATE | Date when the product record became active. |
 
 ---
 
 ### 3. **gold.fact_sales**
-- **Purpose:** Stores transactional sales data for analytical purposes
+- **Purpose:** Stores transactional sales data for analytical purposes.
 - **Columns:**
 
 | Column Name | Data Type | Description |
 | :------ | :--- | :---------- |
 | **order_number** | VARCHAR | Unique alphanumeric identifier for each sales order (e.g. 'SO54496'). |
-| **product_key** | INT | Unique alphanumeric identifier for each sales order (e.g. 'SO54496'). |
-| **customer_key** | INT | Unique alphanumeric identifier for each sales order (e.g. 'SO54496'). |
-| **order_date** | DATE | Unique alphanumeric identifier for each sales order (e.g. 'SO54496'). |
-| **shipping_date** | DATE | Unique alphanumeric identifier for each sales order (e.g. 'SO54496'). |
+| **product_key** | INT | Surrogate key linking the order to the product dimension table. |
+| **customer_key** | INT | Surrogate key linking the order to the customer dimension table. |
+| **order_date** | DATE | Date when the order was placed. |
+| **shipping_date** | DATE | Date when the order was shipped to the customer. |
 | **due_date** | DATE | Date when the order payment was due. |
 | **sales_amount** | INT | Total monetary value of the sale for the line item, in whole currency units (e.g. 25). |
-| **quantity** | INT | Number of units of the product ordered for the line item (e.g. 1) |
-| **price** | INT | Price per unit of the product for the line item, in whole currency units (e.g. 25) |
-
-
-
-
-
-
-
+| **quantity** | INT | Number of units of the product ordered for the line item (e.g. 1). |
+| **price** | INT | Price per unit of the product for the line item, in whole currency units (e.g. 25). |
