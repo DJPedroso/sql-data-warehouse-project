@@ -33,32 +33,37 @@ The project covers the complete data warehousing workflow, including data ingest
 ## Repository Structure
 
 ```text
-.
-├── datasets/
+data-warehouse-project/
 │
-├── docs/
-│   ├── data_catalog.md
-│   └── naming_conventions.md
+├── datasets/                         # Raw datasets used for the project (ERP and CRM data)
 │
-├── scripts/
-│   ├── bronze/
+├── docs/                             # Project documentation and architecture details
+│   ├── data_architecture.png         # Overall data warehouse architecture
+│   ├── data_catalog.md               # Documentation for Gold layer tables and columns
+│   ├── data_flow.png                 # ETL workflow from source to Gold layer
+│   ├── data_integration.png          # Relationships between source system tables
+│   ├── data_model.png                # Star schema of the Gold layer
+│   └── naming_conventions.md         # Standards for naming tables, columns, and procedures
+│
+├── scripts/                          # SQL scripts for ETL and transformations
+│   ├── bronze/                       # Scripts for extracting and loading raw data
 │   │   ├── ddl_bronze.sql
 │   │   └── proc_load_bronze.sql
 │   │
-│   ├── silver/
+│   ├── silver/                       # Scripts for cleaning and transforming data
 │   │   ├── ddl_silver.sql
 │   │   └── proc_load_silver.sql
 │   │
-│   └── gold/
+│   └── gold/                         # Scripts for creating analytical models
 │       └── ddl_gold.sql
 │
-├── tests/
+├── tests/                            # Test scripts and quality files
 │   ├── quality_checks_bronze.sql
 │   ├── quality_checks_silver.sql
 │   └── quality_checks_gold.sql
 │
-├── README.md
-└── LICENSE
+├── README.md                         # Project overview and instructions
+└── LICENSE                           # License information for the repository
 ```
 
 ---
