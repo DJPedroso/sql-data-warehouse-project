@@ -33,7 +33,7 @@ The project covers the complete data warehousing workflow, including data ingest
 ## Repository Structure
 
 ```text
-data-warehouse-project/
+sql-data-warehouse-project/
 │
 ├── datasets/                         # Raw datasets used for the project (ERP and CRM data)
 │
